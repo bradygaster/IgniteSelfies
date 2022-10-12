@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32930.306
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadSubscriber", "image-upload-subscriber\UploadSubscriber.csproj", "{F0A75A30-5907-484F-A33F-A405B21DCA6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scaler", "Scaler\Scaler.csproj", "{CB74DC57-4DCE-431A-A214-2CF9B6B4956B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{695F3448-9A80-45DF-8A41-CDDB6DBFB7CB}"
+	ProjectSection(SolutionItems) = preProject
+		..\azure.yaml = ..\azure.yaml
+		..\infra\main.bicep = ..\infra\main.bicep
+		..\infra\modules\publisher.bicep = ..\infra\modules\publisher.bicep
+		..\infra\resources.bicep = ..\infra\resources.bicep
+		..\infra\modules\scaler.bicep = ..\infra\modules\scaler.bicep
+		..\infra\modules\subscriber.bicep = ..\infra\modules\subscriber.bicep
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0A75A30-5907-484F-A33F-A405B21DCA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A75A30-5907-484F-A33F-A405B21DCA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0A75A30-5907-484F-A33F-A405B21DCA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A75A30-5907-484F-A33F-A405B21DCA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB74DC57-4DCE-431A-A214-2CF9B6B4956B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB74DC57-4DCE-431A-A214-2CF9B6B4956B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB74DC57-4DCE-431A-A214-2CF9B6B4956B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB74DC57-4DCE-431A-A214-2CF9B6B4956B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AA63B99-5DFF-4DCF-96CF-7ACC60102C71}
+	EndGlobalSection
+EndGlobal

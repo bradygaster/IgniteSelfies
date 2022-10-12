@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: IngniteSelfies
+services:
+  publisher:
+    project: src/image-upload-app
+    language: js
+    host: containerapp
+    module: modules/publisher
+  subscriber:
+    project: src/image-upload-subscriber
+    dist: build
+    language: csharp
+    host: containerapp
+    module: modules/subscriber
+  scaler:
+    project: src/Scaler
+    dist: build
+    language: csharp
+    host: containerapp
+    module: modules/scaler
+      

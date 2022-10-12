@@ -1,0 +1,80 @@
+<h1>Welcome to Ignite!</h1>
+<p>
+  Current users: <span id="clientCount">0</span>
+</p>
+<h2>Upload your selfie</h2>
+<form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+  <div class="upload-container"><input id="file-picker" type="file" name="image"></div>
+  <div><input type="submit" value="Upload Image"></div>
+</form>
+
+<p id="message">{{message}}</p>
+
+<h2>Recent selfies:</h2>
+<div id="selfieContainer">
+  <div id="selfies">
+  </div>
+</div>
+
+
+<hr>
+<p>This app has no official privacy policy. Your image will be uploaded and displayed publicly, then deleted at the end
+  of this session.</p>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    let connection = new signalR.HubConnectionBuilder()
+      .withUrl("{{hubHost}}/hubs/selfies")
+      .build();
+
+    connection.on("clientsUpdated", clientCount => {
+      document.getElementById('clientCount').innerText = clientCount;
+    });
+
+    connection.on("selfiesUpdated", selfies => {
+      document.getElementById('selfies').remove();
+
+      var list = document.createElement("div");
+      list.id = "selfies";
+      document.getElementById("selfieContainer").appendChild(list);
+
+      for (i = 0; i < selfies.length; i++) {
+        var img = document.createElement("img");
+        img.setAttribute("class", "selfie");
+        img.setAttribute("src", selfies[i].url);
+        var firstSelfie = document.getElementById("selfies").firstElementChild;
+        document.getElementById("selfies").insertBefore(img, firstSelfie);
+      }
+    });
+
+    connection.start();
+
+    const message = document.getElementById('message');
+    const picker = document.getElementById('file-picker');
+
+    document.getElementById('upload-form').addEventListener('submit', (e) => {
+
+      message.innerText = '';
+
+      e.preventDefault();
+
+      if (!picker.files.length) {
+        message.innerText = 'Please select an image to upload.';
+        return false;
+      }
+
+      let formData = new FormData();
+      let photo = picker.files[0];
+      formData.append("image", photo);
+
+      fetch('/upload',
+        { method: "POST", body: formData }
+      );
+
+      message.innerText = 'Image uploaded.';
+      return false;
+    });
+
+  });
+</script>

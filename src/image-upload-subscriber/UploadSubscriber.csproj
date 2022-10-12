@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>.</DockerfileContext>
+		<UserSecretsId>3bc35ce5-039a-4352-ac0d-8850f20b559a</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Extensions.AspNetCore.DataProtection.Blobs" Version="1.2.3" />
+		<PackageReference Include="Azure.Extensions.AspNetCore.DataProtection.Keys" Version="1.1.0" />
+		<PackageReference Include="Azure.Identity" Version="1.7.0" />
+		<PackageReference Include="Microsoft.Azure.SignalR" Version="1.4.0" />
+		<PackageReference Include="Microsoft.Extensions.Azure" Version="1.5.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Dapr.AspNetCore" Version="1.8.0" />
+		<PackageReference Include="Microsoft.Orleans.Clustering.AzureStorage" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.6.5">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.Persistence.AzureStorage" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.Runtime.Abstractions" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.OrleansProviders" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="3.6.5" />
+		<PackageReference Include="OrleansDashboard" Version="3.6.2" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
+		<PackageReference Include="Microsoft.Orleans.OrleansTelemetryConsumers.AI" Version="3.6.5" />
+		<PackageReference Include="Refit" Version="6.3.2" />
+	</ItemGroup>
+
+</Project>
